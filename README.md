@@ -2,7 +2,7 @@
 Website Project with Database Integration
 
 1. To view this project please in your browser enter this URL to view the hosted project: 
-- https://dejongeg.myweb.cs.uwindsor.ca/project/
+- https://dejongeg.myweb.cs.uwindsor.ca/project/index.html
 - This will start off with index.html as the homepage.
 
 2. To acess the admin page use the following password:
