@@ -1,23 +1,45 @@
-<!-- about.html -->
+<!-- employees.php -->
+<?php
+// database connection settings
+$host = 'localhost';
+$db   = 'dejongeg_project';
+$user = 'dejongeg_project'; 
+$pass = 'npEXvXTwVrvqUwXXhwVZ'; 
+
+// create connection
+$conn = new mysqli($host, $user, $pass, $db);
+
+// check connection
+if ($conn->connect_error) 
+{
+    die("conn failed: " . $conn->connect_error);
+}
+
+// query all employee records
+$sql = "SELECT * FROM employees";
+$result = $conn->query($sql);
+?>
+
+<!-- html for employee table -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- meta tags -->
     <meta charset="UTF-8">
     <meta name="author" content="Garion DeJonge">
-    <meta name="description" content="About Us page">
-    <meta name="keywords" content="About Us, Project Purpose, Info, GSS, Company">
+    <meta name="description" content="View All Employees">
+    <meta name="keywords" content="Employee Portal, View, GSS, Employees">
 
     <!-- page title -->
-    <title>About Us | Employee Portal</title>
+    <title>View Employees | GSS</title>
 
-    <!-- Bootstrap CSS CDN -->
+    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- Google Material Icons -->
+    <!-- Material Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- External Stylesheet -->
+    <!-- External CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -28,7 +50,7 @@
     </a>
 
     <!-- settings dropdown to change common template-->
-    <div class="dropdown settings-dropdown">
+    <div class="dropdown settings-dropdown d-flex align-items-center gap-2">
         <!-- this button is a dropdown button that conatins the template buttons -->
         <button class="btn btn-light dropdown-toggle d-flex align-items-center gap-1" type="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="material-icons">settings</span>
@@ -54,6 +76,7 @@
                 </button>
             </li>
         </ul>
+        <a href="employeesHelp.html" class="btn" style="background-color: gold; color: black; font-weight: bold;">WIKI Help</a>
     </div>
 
     <!-- header -->
@@ -64,37 +87,52 @@
                 <path d="M10,50 L100,150 L190,50 L170,50 L100,120 L30,50 Z" class="logo-shape" />
                 <text x="50%" y="45%" text-anchor="middle" class="logo-text">GSS</text>
             </svg>
-            <h1>About US</h1>
+            <h1>All Employees</h1>
         </div>
     </header>
 
     <!-- main content -->
-    <main style="max-width: 800px; margin: 40px auto; text-align: center;">
-        <!-- section 1 page header -->
-        <h2>Project Purpose</h2>
-        <!-- paragraph explaining projects purpose -->
-        <p>This website is designed to help manage a companies employees from an admin level or a personal employee level.
-        The idea is basically to give a company and its employees the ability to access company information stored in a 
-        database and work with it safely. Many companies have lots of important information stored employees use everyday
-        but not all employees are technical and understand the inner workings of a a database and so this site is meant
-        to give those both technically skilled and not a user friendly way to interact with tables. Of course this site
-        right now is very simplistic only having an employee table but the idea is that it can be expanded upon to have
-        customer, sales, product, and even more tables to help the employees of a comany do their jobs more efficiently.</p>
+    <main class="container my-5">
+        <h2 class="mb-4 text-center">Employee Records</h2>
 
-        <!-- section 2 header -->
-        <h2>Features</h2>
-        <!-- site features listed -->
-        <p>In this website there are plenty of tools for managing the employee database including:</p>
-        <!-- ul list of different site features -->
-        <ul>
-            <li>Viewing Records</li>
-            <li>Searching Records</li>
-            <li>Disabling Records</li>
-            <li>Viewing Image Profiles</li>
-            <li>5 WIKI Help Pages</li>
-            <li>3 Guidance Videos</li>
-            <li>Selecting between 3 webpage template options (via the settings icon)</li>
-        </ul>
+        <!-- php for keeping track of rows outputted -->
+        <?php if ($result && $result->num_rows > 0): ?>
+            <!-- responsive table container -->
+            <div class="table-responsive">
+                <!-- striped table -->
+                <table class="table table-bordered table-striped">
+                    <!-- table header -->
+                    <thead class="table-primary">
+                        <!-- table header -->
+                        <tr>
+                            <!-- table columns -->
+                            <th>ID</th><th>Name</th><th>Age</th><th>Email</th><th>Phone</th><th>Department</th><th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- php to populate the tables values by iterating over records in a while loop -->
+                        <?php while($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <!-- get the current iteration values in row -->
+                            <td><?= htmlspecialchars($row["employee_id"]) ?></td>
+                            <td><?= htmlspecialchars($row["name"]) ?></td>
+                            <td><?= htmlspecialchars($row["age"]) ?></td>
+                            <td><?= htmlspecialchars($row["email"]) ?></td>
+                            <td><?= htmlspecialchars($row["phone"]) ?></td>
+                            <td><?= htmlspecialchars($row["department"]) ?></td>
+                            <td><?= htmlspecialchars($row["status"]) ?></td>
+                        </tr>
+                        <?php endwhile; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <!-- if no employee record were found -->
+            <p class="text-center">No employees found.</p>
+        <?php endif; ?>
+
+        <!-- close conn we are done with it -->
+        <?php $conn->close(); ?>
     </main>
 
     <!-- footer -->

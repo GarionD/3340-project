@@ -1,15 +1,15 @@
-<!-- about.html -->
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <!-- meta tags -->
     <meta charset="UTF-8">
     <meta name="author" content="Garion DeJonge">
-    <meta name="description" content="About Us page">
-    <meta name="keywords" content="About Us, Project Purpose, Info, GSS, Company">
+    <meta name="description" content="Homepage for Employee Management Portal">
+    <meta name="keywords" content="Employee Management, Navigation, Homepage, Template Themes, GSS">
 
     <!-- page title -->
-    <title>About Us | Employee Portal</title>
+    <title>Employee Portal | GSS</title>
 
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -32,6 +32,7 @@
         <!-- this button is a dropdown button that conatins the template buttons -->
         <button class="btn btn-light dropdown-toggle d-flex align-items-center gap-1" type="button" id="settingsDropdown" data-bs-toggle="dropdown" aria-expanded="false">
             <span class="material-icons">settings</span>
+            Change Common Template
         </button>
         <!-- ul list to display the template buttons -->
         <ul class="dropdown-menu" aria-labelledby="settingsDropdown">
@@ -59,42 +60,56 @@
     <!-- header -->
     <header>
         <div class="header-content">
-            <!-- custom logo design to represent the company -->
+            <!-- custome logo design to represent the company -->
             <svg class="logo" width="160" height="130" viewBox="0 0 200 200">
                 <path d="M10,50 L100,150 L190,50 L170,50 L100,120 L30,50 Z" class="logo-shape" />
                 <text x="50%" y="45%" text-anchor="middle" class="logo-text">GSS</text>
             </svg>
-            <h1>About US</h1>
+            <h1>Employee Portal</h1>
         </div>
     </header>
 
     <!-- main content -->
     <main style="max-width: 800px; margin: 40px auto; text-align: center;">
-        <!-- section 1 page header -->
-        <h2>Project Purpose</h2>
-        <!-- paragraph explaining projects purpose -->
-        <p>This website is designed to help manage a companies employees from an admin level or a personal employee level.
-        The idea is basically to give a company and its employees the ability to access company information stored in a 
-        database and work with it safely. Many companies have lots of important information stored employees use everyday
-        but not all employees are technical and understand the inner workings of a a database and so this site is meant
-        to give those both technically skilled and not a user friendly way to interact with tables. Of course this site
-        right now is very simplistic only having an employee table but the idea is that it can be expanded upon to have
-        customer, sales, product, and even more tables to help the employees of a comany do their jobs more efficiently.</p>
-
-        <!-- section 2 header -->
-        <h2>Features</h2>
-        <!-- site features listed -->
-        <p>In this website there are plenty of tools for managing the employee database including:</p>
-        <!-- ul list of different site features -->
-        <ul>
-            <li>Viewing Records</li>
-            <li>Searching Records</li>
-            <li>Disabling Records</li>
-            <li>Viewing Image Profiles</li>
-            <li>5 WIKI Help Pages</li>
-            <li>3 Guidance Videos</li>
-            <li>Selecting between 3 webpage template options (via the settings icon)</li>
-        </ul>
+        <!-- welcome message -->
+        <h2>Welcome to Garion's Employee Management Portal</h2>
+        <!-- page description -->
+        <p>This portal allows you to manage employee records stored in a database.</p>
+        <!-- navigation button container -->
+        <div class="container text-center my-4">
+            <!-- keeps buttons centered and even with each other in a row where each button is a column-->
+            <div class="row justify-content-center g-3">
+                <!-- this nav button goes to the admin login -->
+                <div class="col-md-3">
+                    <!-- Admin Login button now points to adminLogin.html -->
+                    <a href="adminLogin.html" class="btn btn-primary w-100">Admin Login</a>
+                </div>
+                <!-- this nav button goes to the search page -->
+                <div class="col-md-3">
+                    <a href="search.html" class="btn btn-primary w-100">Search Employee</a>
+                </div>
+                <!-- this nav button goes to the employees table page -->
+                <div class="col-md-3">
+                    <a href="employees.php" class="btn btn-primary w-100">View Employees</a>
+                </div>
+                <!-- this nav button goes to the image profiles gallary -->
+                <div class="col-md-3">
+                    <a href="employeeProfiles.php" class="btn btn-primary w-100">View Profiles</a>
+                </div>
+                <!-- this nav button goes to the about page to explain the projects purpose -->
+                <div class="col-md-3">
+                    <a href="about.html" class="btn btn-primary w-100">About Us</a>
+                </div>
+                <!-- this nav button goes to the videos gallary conatining assistive video guides-->
+                <div class="col-md-3">
+                    <a href="videos.html" class="btn btn-primary w-100">Videos</a>
+                </div>
+                <!-- this nav button goes to the wiki help homepage -->
+                <div class="col-md-3">
+                    <a href="homepageHelp.html" class="btn" style="background-color: gold; color: black; font-weight: bold;">WIKI Help</a>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- footer -->
@@ -118,5 +133,4 @@
     <!-- Java Script external style sheet -->
     <script src="project.js"></script>
 </body>
-
 </html>

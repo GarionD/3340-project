@@ -1,0 +1,170 @@
+/* ========================================
+   INDEX OF STYLES
+   ========================================
+   1. home icon
+   2. home button
+   3. header and footer layout
+   4. header and footer logo layout
+   5. header title font
+   6. logo svg text
+   7. global font
+   8. settings dropdown button
+   9. dark mode toggle styles
+   10. alternate font toggle
+   11. scale font toggle
+*/
+
+/* ========================================
+   1. home icon
+   ======================================== */
+/* style the home mdi black and set its size */
+.iconHome 
+{
+    font-family: 'Material Icons';
+    font-size: 32px;
+    color: #1f1f1f;
+}
+
+/* ========================================
+   2. home button
+   ======================================== */
+/* position the home icon to be in the top left of the page and remove the underline */
+.home-button 
+{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    text-decoration: none;
+}
+
+/* ========================================
+   3. header and footer layout
+   ======================================== */
+/* center allign header and footer and set thier background colour */
+header,
+footer 
+{
+    text-align: center;
+    padding: 10px;
+    background-color: #c2d6e3;
+}
+
+/* ========================================
+   4. header and footer logo layout
+   ======================================== */
+/* center in a flex display the header and footer content */
+.header-content,
+.footer-content 
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ========================================
+   5. header title font
+   ======================================== */
+/* set colour, size, and font for headers */
+header h1 
+{
+    font-family: 'Trebuchet MS', sans-serif;
+    font-size: 42px;
+    color: #1f1f1f;
+}
+
+/* ========================================
+   6. logo svg text
+   ======================================== */
+/* styles for logo to get correct size, boldness, and font for logo text */
+.logo-text 
+{
+    font-size: 32px;
+    font-family: 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+}
+
+/* ========================================
+   7. global font
+   ======================================== */
+/* set all body text to have a consistent font */
+body 
+{
+    font-family: 'Trebuchet MS', sans-serif;
+}
+
+/* ========================================
+   8. settings dropdown button
+   ======================================== */
+/* position the common template settings button at the top right of the page */
+.settings-dropdown 
+{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 10;
+}
+
+/* ========================================
+   9. dark mode toggle styles 
+   ======================================== */
+/* in dark mode adjust the header and footer backgrounds */
+body.dark-mode header,
+body.dark-mode footer 
+{
+    background-color: #444444;
+}
+
+/* in dark mode make header and footer black content white */
+body.dark-mode header h1,
+body.dark-mode footer .footer-text,
+body.dark-mode .logo-text,
+body.dark-mode .iconHome
+{
+    color: #f2f2f2;
+}
+
+/* ========================================
+   10. alternate font toggle
+   ======================================== */
+/* in alternate font common template change all body fonts */
+body.alt-font 
+{
+    font-family: 'Georgia', serif;
+}
+
+/* also change the header and logo fonts */
+header.alt-font h1,
+.alt-font.logo-text 
+{
+    font-family: 'Georgia', serif;
+}
+
+/* ========================================
+   11. bold text toggle
+   ======================================== */
+/* in the bold common template change all the different text releated elements to be bold */
+body.bold-font, 
+body.bold-font h1,
+body.bold-font h2,
+body.bold-font h3,
+body.bold-font h4,
+body.bold-font h5,
+body.bold-font h6,
+body.bold-font p,
+body.bold-font label,
+body.bold-font input,
+body.bold-font select,
+body.bold-font textarea,
+body.bold-font button,
+body.bold-font .logo-text,
+body.bold-font .footer-text,
+body.bold-font td,
+body.bold-font th,
+body.bold-font a,
+body.bold-font span 
+{
+    font-weight: bold !important;
+}
+
+
